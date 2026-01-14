@@ -1,0 +1,43 @@
+version: "3.9"
+
+services:
+  mysql:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_ROOT_PASSWORD: ${DB_PASS}
+    # ports:
+    #   - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  ai:
+    build: ./ai-service
+    restart: always
+    ports:
+      - "8000:8000"
+
+  api:
+    build: ./backend
+    restart: always
+    env_file:
+      - .env
+    depends_on:
+      - mysql
+      - ai
+    ports:
+      - "3000:3000"
+
+  dashboard:
+    build: ./dashboard
+    restart: always
+    env_file:
+      - .env
+    depends_on:
+      - api
+    ports:
+      - "3001:3000"
+
+volumes:
+  mysql_data:

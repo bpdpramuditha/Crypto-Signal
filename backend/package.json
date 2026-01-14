@@ -1,0 +1,33 @@
+{
+  "name": "crypto-signal-backend",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start:dev": "nest start --watch",
+    "build": "nest build",
+    "start": "node dist/main.js"
+  },
+  "dependencies": {
+    "@nestjs/common": "^10.0.0",
+    "@nestjs/core": "^10.0.0",
+    "@nestjs/platform-express": "^10.0.0",
+    "@nestjs/platform-socket.io": "^10.4.22",
+    "@nestjs/schedule": "^4.0.0",
+    "@nestjs/typeorm": "^10.0.0",
+    "@nestjs/websockets": "^10.0.0",
+    "axios": "^1.6.0",
+    "dotenv": "^16.4.0",
+    "mysql2": "^3.9.0",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^7.8.1",
+    "socket.io": "^4.8.3",
+    "technicalindicators": "^3.1.0",
+    "typeorm": "^0.3.20",
+    "ws": "^8.16.0"
+  },
+  "devDependencies": {
+    "@nestjs/cli": "^10.0.0",
+    "@types/node": "^20.0.0",
+    "typescript": "^5.2.0"
+  }
+}
